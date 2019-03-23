@@ -20,10 +20,11 @@ const mixedNumbers = [6,3,1,7,5,2,6,8,9,4,2,7,9,3,1,8,4,3];
   (element, index, wholeArray)=>{}    Arrow Form
 */
 
-//Code Here
-let evenNumbers // = mixedNumbers.filter(/* Provide Your Callback Here */)
-
-
+let evenNumbers = mixedNumbers.filter(function(elem){
+  if(elem % 2 === 0){
+    return elem
+  }
+})
 
 ////////// PROBLEM 2 //////////
 
@@ -44,7 +45,9 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 */
 
 //Code Here
-let postTaxPrices // = prices.map(/* Provide Your Callback Here );
+let postTaxPrices = prices.map(function(elem){
+  return elem * 1.07
+});
 
 
 
@@ -63,7 +66,10 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 //Code Here
-let totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
+let totalPopulation = populations.reduce(function(total, elem){
+  total += elem
+  return total
+})
 
 
 
@@ -89,7 +95,9 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 //Code Here
-let myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+let myStrongest = monstersInYourPocket.filter(function(elem){
+  return elem.CP > 200
+})
 
 
 
@@ -106,7 +114,9 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
   Use a higher order method to get all the order totals after adding in the sales tax. Your answer should be an array of numbers, one total for each order.
 */
 
-let orderTotals // Code here
+let orderTotals = orders.map(function(elem){
+  return elem.price * (1 + elem.tax)
+})
 
 
 
@@ -126,6 +136,25 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal //Code Here
+let bobsTotal = purchases.reduce(function(total, elem){
+  if(elem.owner === 'Bob'){
+    total += elem.price
+    return total
+  }
+  else{
+    return total
+  }
+},0)
+
+//let bobsTotal = purchases.filter(function(elem){
+//  if(elem.owner === 'Bob'){
+//    return elem
+//  }
+//}).map(function(elem){
+//  return elem.price
+//}).reduce(function(total, elem){
+//  total += elem
+//  return total
+//})
 
 
